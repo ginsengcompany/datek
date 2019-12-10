@@ -1,0 +1,55 @@
+doctype html
+html(lang='en')
+    head
+        meta(charset='utf-8')
+        meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
+        meta(http-equiv='x-ua-compatible', content='ie=edge')
+        title DATEK
+        // Font Awesome
+        link(rel='stylesheet', href='https://use.fontawesome.com/releases/v5.8.2/css/all.css')
+        // Bootstrap core CSS
+        link(href='/stylesheets/bootstrap.min.css', rel='stylesheet')
+        // Material Design Bootstrap
+        link(href='/stylesheets/mdb.min.css', rel='stylesheet')
+        // Your custom styles (optional)
+        link(href='/stylesheets/style.css', rel='stylesheet')
+        link(rel='stylesheet', href='https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css')
+    body
+        nav.navbar.navbar-light.lighten-4
+            a.navbar-brand(href='home', style='color: white') DATEK
+            button.navbar-toggler.toggler-example(type='button', data-toggle='collapse', data-target='#navbarSupportedContent1', aria-controls='navbarSupportedContent1', aria-expanded='false', aria-label='Toggle navigation', style='color: white')
+                span.dark-blue-text
+                    i.fas.fa-bars.fa-1x
+            #navbarSupportedContent1.collapse.navbar-collapse
+                ul.navbar-nav.mr-auto
+                    li.nav-item.active
+                        a.nav-link(href='/', style='color: white')
+                            | Home
+                            span.sr-only (current)
+                    li.nav-item
+                        a.nav-link(href='/database', style='color: white') Dati Database
+                    li.nav-item
+                        a.nav-link(href='/dati', style='color: white') Mappa
+                    li.nav-item
+                        a.nav-link(href='/powerbi', style='color: white') Power BI
+                    li.nav-item
+                        a.nav-link(href='/datistatistici', style='color: white') Dati Statistici
+                    li.nav-item
+                        a.nav-link(href='/logout', style='color: white') Logout
+        .container
+            .row.d-flex.justify-content-center.text-center(style='padding-bottom: 50px; padding-top: 20px')
+                h1 Integrazione Dashbord di BI Dati Sanitari
+        .container
+            .row.d-flex.align-content-center
+                .col-lg-12.text-center.resp-container
+                    iframe.resp-iframe(width='933', height='700', src='https://app.powerbi.com/view?r=eyJrIjoiY2ZkNmQwMGYtYzc2Zi00YmRkLWJlYWEtMjU1MDRkNTJlNzg3IiwidCI6ImU5N2IzOTIwLWExZTAtNDRlZi04YWNmLTFkMjAyNTBiNzQ0NyIsImMiOjl9', frameborder='0', allowfullscreen='true')
+        .container
+            .row.d-flex.align-content-center(style='padding-bottom: 50px')
+    include footer
+    script(type='text/javascript', src='/javascript/jquery-3.4.1.min.js')
+        // Bootstrap tooltips
+    script(type='text/javascript', src='/javascript/popper.min.js')
+        // Bootstrap core JavaScript
+    script(type='text/javascript', src='/javascript/bootstrap.min.js')
+        // MDB core JavaScript
+    script(type='text/javascript', src='/javascript/mdb.min.js')

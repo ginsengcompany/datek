@@ -1,0 +1,144 @@
+mixin message(name)
+    h1 User:
+        span=name
+
+
+    #centralModalWarning.modal.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel', aria-hidden='true')
+        .modal-dialog.modal-notify.modal-warning(role='document')
+            // Content
+            .modal-content
+                // Header
+                .modal-header
+                    p.heading.lead Nessun risultato trovato !
+                    button.close(type='button', data-dismiss='modal', aria-label='Close')
+                        span.white-text(aria-hidden='true') ×
+                // Body
+                .modal-body
+                    .text-center
+                        i.fas.fa-check.fa-4x.mb-3.animated.rotateIn
+                        p
+                            | Per effettuare un altra ricerca
+                            | selezionare OK
+                // Footer
+                .modal-footer.justify-content-center
+                    a.btn.btn-warning.confirm-button(type='button', data-dismiss='modal')
+                        | OK
+                    a.btn.btn-outline-warning.waves-effect(type='button', data-dismiss='modal') Annulla
+            // /.Content
+
+
+doctype html
+html(lang='en')
+    head
+        meta(charset='utf-8')
+        meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
+        meta(http-equiv='x-ua-compatible', content='ie=edge')
+        title DATEK
+        // Font Awesome
+        link(rel='stylesheet', href='https://use.fontawesome.com/releases/v5.8.2/css/all.css')
+        // Bootstrap core CSS
+        link(href='/stylesheets/bootstrap.min.css', rel='stylesheet')
+        // Material Design Bootstrap
+        link(href='/stylesheets/mdb.min.css', rel='stylesheet')
+        // Your custom styles (optional)
+        link(href='/stylesheets/style.css', rel='stylesheet')
+        link(rel='stylesheet', href='https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css')
+    body
+        #centralModalDanger.modal.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel', aria-hidden='true')
+            .modal-dialog.modal-notify.modal-danger(role='document')
+                // Content
+                .modal-content
+                    // Header
+                    .modal-header
+                        p.heading.lead Nessun risultato trovato !
+                        button.close(type='button', data-dismiss='modal', aria-label='Close')
+                            span.white-text(aria-hidden='true') &times;
+                    // Body
+                    .modal-body
+                        .text-center
+                            i.fas.fa-times.fa-4x.mb-3.animated.rotateIn
+                            p.error-text
+                                | Per effettuare un'altra ricerca
+                                | selezionare OK
+                    .modal-footer.justify-content-center
+                        a.btn.btn-danger.confirm-button(type='button', data-dismiss='modal')
+                            | OK
+                // /.Content
+        nav.navbar.navbar-light.lighten-4
+            a.navbar-brand(href='home', style='color: white') DATEK
+            button.navbar-toggler.toggler-example(type='button', data-toggle='collapse', data-target='#navbarSupportedContent1', aria-controls='navbarSupportedContent1', aria-expanded='false', aria-label='Toggle navigation', style='color: white')
+                span.dark-blue-text
+                    i.fas.fa-bars.fa-1x
+            #navbarSupportedContent1.collapse.navbar-collapse
+                ul.navbar-nav.mr-auto
+                    li.nav-item.active
+                        a.nav-link(href='/', style='color: white')
+                            | Home
+                            span.sr-only (current)
+                    li.nav-item
+                        a.nav-link(href='/database', style='color: white') Dati Database
+                    li.nav-item
+                        a.nav-link(href='/dati', style='color: white') Mappa
+                    li.nav-item
+                        a.nav-link(href='/powerbi', style='color: white') Power BI
+                    li.nav-item
+                        a.nav-link(href='/datistatistici', style='color: white') Dati Statistici
+                    li.nav-item
+                        a.nav-link(href='/logout', style='color: white') Logout
+        .container
+            .row.d-flex.justify-content-center(style='padding-bottom: 50px')
+        .container
+            .row.d-flex.align-content-center
+                .col-md-2
+                .col-md-8.text-center
+                    label.disabled( style='margin-top: 20px') Anno
+                    select#anno.tipo.browser-default.custom-select(style='margin-buttom: 20px')
+                        option(selected='' value='0') Seleziona anno
+                    label.disabled( style='margin-top: 20px') Comune
+                    select#comune.tipo.browser-default.custom-select(style='margin-buttom: 20px')
+                        option(selected='' value='0') Selezionare Comune
+                    label.disabled( style='margin-top: 20px') ASL
+                    select#asl.tipo.browser-default.custom-select(style='margin-buttom: 20px')
+                        option(selected='' value='0') Selezionare ASL
+                    label.disabled( style='margin-top: 20px') Postazioni
+                    select#postazioni.tipo.browser-default.custom-select(style='margin-buttom: 20px')
+                        option(selected='' value='0') Selezionare postazioni
+                    label.disabled( style='margin-top: 20px') Diagnosi
+                    select#diagnosi.tipo.browser-default.custom-select(style='margin-buttom: 20px')
+                        option(selected='' value='0') Selezionare diagnosi
+        .container(style='margin-top: 20px')
+            .row.justify-content-md-center
+                .col-md-12.text-center
+                    button#cerca.btn.btn-outline-primary.waves-effect.send-button(type='button' style='border-color: #213f55 !important; color: #213f55 !important;') Cerca
+        .container
+            .row.d-flex.align-content-between
+                .col-md-1
+                .col-md-10
+                    table#tabellaPazienti.display(style="width:100%")
+                        thead
+                            tr
+                                th Anno
+                                th Sesso
+                                th Comune di nascita
+                                th Comune di residenza
+                                th Diagnosi
+                                th Età
+        .container
+            .row.d-flex.justify-content-center
+                .col-md-4
+                .col-md-8.text-center
+                .col-md-2
+        .container
+            .row.d-flex.justify-content-center(style='padding-top: 50px')
+    // SCRIPTS
+    // JQuery
+    include footer
+    script(type='text/javascript', src='/javascript/jquery-3.4.1.min.js')
+    // Bootstrap tooltips
+    script(type='text/javascript', src='/javascript/popper.min.js')
+    // Bootstrap core JavaScript
+    script(type='text/javascript', src='/javascript/bootstrap.min.js')
+    // MDB core JavaScript
+    script(type='text/javascript', src='/javascript/mdb.min.js')
+    script(type='text/javascript', src='/javascript/database.js')
+    script(type='text/javascript', src='https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js')

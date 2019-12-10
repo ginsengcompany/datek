@@ -1,0 +1,104 @@
+mixin message(name)
+        h1 User:
+            span=name
+
+doctype html
+html(lang='en')
+    head
+        meta(charset='utf-8')
+        meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
+        meta(http-equiv='x-ua-compatible', content='ie=edge')
+        title DATEK
+        // Font Awesome
+        link(rel='stylesheet', href='https://use.fontawesome.com/releases/v5.8.2/css/all.css')
+        // Bootstrap core CSS
+        link(href='/stylesheets/bootstrap.min.css', rel='stylesheet')
+        // Material Design Bootstrap
+        link(href='/stylesheets/mdb.min.css', rel='stylesheet')
+        // Your custom styles (optional)
+        link(href='/stylesheets/style.css', rel='stylesheet')
+        link(href='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.js')
+        link(href='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.min.js')
+        link(href='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.css')
+        link(href='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.js')
+        link(href='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.css')
+        link(href='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js')
+    body
+        nav.navbar.navbar-light.lighten-4
+            a.navbar-brand(href='home', style='color: white') DATEK
+            button.navbar-toggler.toggler-example(type='button', data-toggle='collapse', data-target='#navbarSupportedContent1', aria-controls='navbarSupportedContent1', aria-expanded='false', aria-label='Toggle navigation', style='color: white')
+                span.dark-blue-text
+                    i.fas.fa-bars.fa-1x
+            #navbarSupportedContent1.collapse.navbar-collapse
+                ul.navbar-nav.mr-auto
+                    li.nav-item.active
+                        a.nav-link(href='/', style='color: white')
+                            | Home
+                            span.sr-only (current)
+                    li.nav-item
+                        a.nav-link(href='/database', style='color: white') Dati Database
+                    li.nav-item
+                        a.nav-link(href='/dati', style='color: white') Mappa
+                    li.nav-item
+                        a.nav-link(href='/powerbi', style='color: white') Power BI
+                    li.nav-item
+                        a.nav-link(href='/datistatistici', style='color: white') Dati Statistici
+                    li.nav-item
+                        a.nav-link(href='/logout', style='color: white') Logout
+        .container
+            .row.d-flex.justify-content-center(style='padding-bottom: 50px')
+        .container
+            .row.d-flex.justify-content-center
+                .col-md-2
+                .col-md-8.text-center
+                    +message(name)
+                .col-md-2
+        .container
+            .row.d-flex.justify-content-around(style='padding-top: 30px')
+                .col-md-12.text-center
+                    h1 Opzioni di interfaccia comune
+                    .row.d-flex.justify-content-around(style='padding-top: 10px')
+                        .card.card-cascade.narrow.col-md-2.mb-2.mt-2.mr-2
+                            .view.overlay
+                                img.card-img-top(src='/images/ris.png', alt='')
+                            // Card content
+                            .card-body
+                                h4.card-title RIS
+                                p.card-text Descrizione
+                                a.btn.btn-outline-primary.waves-effect(href='http://localhost:3000/sondaggi/modifica-sondaggio/', style='border-color: #213f55 !important; color: #213f55 !important;') Apri RIS
+                        .card.card-cascade.narrow.col-md-2.mb-2.mt-2.mr-2
+                            .view.overlay
+                                img.card-img-top(src='/images/powerbi.png', alt='')
+                            // Card content
+                            .card-body
+                                h4.card-title Power BI
+                                p.card-text Descrizione
+                                a.btn.btn-outline-primary.waves-effect(href='/powerbi', style='border-color: #213f55 !important; color: #213f55 !important;') Apri Power BI
+                        .card.card-cascade.narrow.col-md-2.mb-2.mt-2.mr-2
+                            .view.overlay
+                                img.card-img-top(src='/images/studi.png', alt='')
+                            // Card content
+                            .card-body
+                                h4.card-title Studi
+                                p.card-text Descrizione
+                                a.btn.btn-outline-primary.waves-effect(href='http://localhost:3000/sondaggi/modifica-sondaggio/', style='border-color: #213f55 !important; color: #213f55 !important;') Analizza Studi
+                        .card.card-cascade.narrow.col-md-2.mb-2.mt-2.mr-2
+                            .view.overlay
+                                img.card-img-top(src='/images/matlab.png', alt='')
+                            // Card content
+                            .card-body
+                                h4.card-title MATLAB
+                                p.card-text Descrizione
+                                a.btn.btn-outline-primary.waves-effect(href='/home/apriprogramma', style='border-color: #213f55 !important; color: #213f55 !important;') Apri MATLAB
+        .container
+            .row.d-flex.justify-content-center(style='padding-top: 50px')
+    // SCRIPTS
+    // JQuery
+    include footer
+    script(type='text/javascript', src='/javascript/jquery-3.4.1.min.js')
+    // Bootstrap tooltips
+    script(type='text/javascript', src='/javascript/popper.min.js')
+    // Bootstrap core JavaScript
+    script(type='text/javascript', src='/javascript/bootstrap.min.js')
+    // MDB core JavaScript
+    script(type='text/javascript', src='/javascript/mdb.min.js')
