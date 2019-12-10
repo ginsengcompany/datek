@@ -47,6 +47,4 @@ router.get('/inquinante/:anno/:inquinante/', function(req, res, next) {
 });
 
 
-
-
 module.exports = router;
