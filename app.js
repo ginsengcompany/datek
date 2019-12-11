@@ -26,7 +26,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 //Session
 app.use(session({
-    secret: 'Progetto COSA',
+    secret: 'Progetto Datek',
     resave: false,
     saveUninitialized: false,
     cookie: {

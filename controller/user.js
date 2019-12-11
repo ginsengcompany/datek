@@ -17,7 +17,7 @@ User.prototype = {
             });
     },
     create: function(body, callback) {
-        const pwd = bcrypt.hashSync(body.password,10);
+        const pwd = bcrypt.hashSync(body.password, 10);
         const username = body.username;
         const email = body.email;
         let sql = `INSERT INTO users(username, email, password) VALUES (?, ?, ?)`;

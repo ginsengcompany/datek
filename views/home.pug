@@ -58,15 +58,15 @@ html(lang='en')
                 .col-md-12.text-center
                     h1 Opzioni di interfaccia comune
                     .row.d-flex.justify-content-around(style='padding-top: 10px')
-                        .card.card-cascade.narrow.col-md-2.mb-2.mt-2.mr-2
+                        .card.card-cascade.narrow.col-md-3.mb-3.mt-3.mr-3
                             .view.overlay
-                                img.card-img-top(src='/images/ris.png', alt='')
+                                img.card-img-top(src='/images/ohif.png', alt='')
                             // Card content
                             .card-body
-                                h4.card-title RIS
+                                h4.card-title OHIF Viewer
                                 p.card-text Descrizione
-                                a.btn.btn-outline-primary.waves-effect(href='http://localhost:3000/sondaggi/modifica-sondaggio/', style='border-color: #213f55 !important; color: #213f55 !important;') Apri RIS
-                        .card.card-cascade.narrow.col-md-2.mb-2.mt-2.mr-2
+                                a.btn.btn-outline-primary.waves-effect(href='http://localhost:3000/', target='_blank', style='border-color: #213f55 !important; color: #213f55 !important;') Apri OHIF Viewer
+                        .card.card-cascade.narrow.col-md-3.mb-3.mt-3.mr-3
                             .view.overlay
                                 img.card-img-top(src='/images/powerbi.png', alt='')
                             // Card content
@@ -74,15 +74,23 @@ html(lang='en')
                                 h4.card-title Power BI
                                 p.card-text Descrizione
                                 a.btn.btn-outline-primary.waves-effect(href='/powerbi', style='border-color: #213f55 !important; color: #213f55 !important;') Apri Power BI
-                        .card.card-cascade.narrow.col-md-2.mb-2.mt-2.mr-2
+                        .card.card-cascade.narrow.col-md-3.mb-3.mt-3.mr-3
                             .view.overlay
                                 img.card-img-top(src='/images/studi.png', alt='')
                             // Card content
                             .card-body
-                                h4.card-title Studi
+                                h4.card-title Studi - RIS
                                 p.card-text Descrizione
-                                a.btn.btn-outline-primary.waves-effect(href='http://localhost:3000/sondaggi/modifica-sondaggio/', style='border-color: #213f55 !important; color: #213f55 !important;') Analizza Studi
-                        .card.card-cascade.narrow.col-md-2.mb-2.mt-2.mr-2
+                                a.btn.btn-outline-primary.waves-effect(href='LocaleEnergyConsole:&http://192.168.125.192:8090&1.2.345.654.3456789080.12', style='border-color: #213f55 !important; color: #213f55 !important;') Analizza Studi
+                        .card.card-cascade.narrow.col-md-3.mb-3.mt-3.mr-3
+                            .view.overlay
+                                img.card-img-top(src='/images/orthanc.png', alt='')
+                            // Card content
+                            .card-body
+                                h4.card-title ORTHANC
+                                p.card-text Descrizione
+                                a.btn.btn-outline-primary.waves-effect(href='http://localhost:8042/app/explorer.html', target='_blank', style='border-color: #213f55 !important; color: #213f55 !important;') Apri ORTHANC
+                        .card.card-cascade.narrow.col-md-3.mb-3.mt-3.mr-3
                             .view.overlay
                                 img.card-img-top(src='/images/matlab.png', alt='')
                             // Card content

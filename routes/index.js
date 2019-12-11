@@ -160,7 +160,7 @@ router.get('/home/apriprogramma', function(req, res, next) {
 
     var fun =function(){
         console.log("fun() start");
-        exec('C:\\Program Files\\Sublime Text 3\\sublime_text', function(err, data) {
+        exec('C:\\Program Files\\MATLAB\\R2018b\\bin\\matlab', function(err, data) {
             console.log(err)
             console.log(data.toString());
         });
