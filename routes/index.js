@@ -2,6 +2,8 @@ const express = require('express');
 const mysql = require('../pool');
 const User = require('../controller/user');
 const provider = require('../provider');
+const shell = require('shelljs');
+const path = require('path');
 const router = express.Router();
 
 const user = new User();
@@ -154,7 +156,7 @@ router.get('/home/sessoPazientiPerData/:anno', function(req, res, next) {
         }
     });
 });
-
+/*
 router.get('/home/apriprogramma', function(req, res, next) {
     var exec = require('child_process').execFile;
 
@@ -168,6 +170,19 @@ router.get('/home/apriprogramma', function(req, res, next) {
     fun();
 
 });
-
+*/
+router.get('/home/matlab', function (req, res, next) {
+    var matPath = path.resolve('C:/Program Files/MATLAB/R2018b/bin/matlab.exe');
+    var fileMPath = path.resolve('C:/Users/ak12s/Desktop/Segment_Lesions/batch_lesion.m');
+    var command = '"C:\/Program Files\/MATLAB\/R2018b\/bin\/matlab.exe"'+
+        ' -nosplash -nodesktop -r '+
+        "run(\'" + '"C:\/Users\/ak12s\/Desktop\/Segment_Lesions\/batch_lesion.m"' + "\')";
+    shell.exec(command, function (code, stdout, stderr) {
+        console.log('Exit code: ', code);
+        console.log('Program output ', stdout);
+        console.log('Program stderr: ', stderr);
+    });
+    res.redirect('/home');
+});
 
 module.exports = router;
