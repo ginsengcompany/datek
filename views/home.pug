@@ -97,7 +97,9 @@ html(lang='en')
                             .card-body
                                 h4.card-title MATLAB
                                 p.card-text Descrizione
-                                a.btn.btn-outline-primary.waves-effect(href='/home/matlab', style='border-color: #213f55 !important; color: #213f55 !important;') Apri MATLAB
+                                a.btn.btn-outline-primary.waves-effect(href='/home/matlab/matlab.exe', style='border-color: #213f55 !important; color: #213f55 !important;') Apri MATLAB
+                                | Configura path MATLAB:
+                                input#i_file(type='file', name='myFile')
         .container
             .row.d-flex.justify-content-center(style='padding-top: 50px')
     // SCRIPTS
@@ -110,3 +112,4 @@ html(lang='en')
     script(type='text/javascript', src='/javascript/bootstrap.min.js')
     // MDB core JavaScript
     script(type='text/javascript', src='/javascript/mdb.min.js')
+    script(type='text/javascript', src='/javascript/index.js')

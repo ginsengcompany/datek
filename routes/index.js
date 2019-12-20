@@ -171,12 +171,19 @@ router.get('/home/apriprogramma', function(req, res, next) {
 
 });
 */
-router.get('/home/matlab', function (req, res, next) {
+
+router.get('/home/matlab/:pathfile', function (req, res, next) {
     var matPath = path.resolve('C:/Program Files/MATLAB/R2018b/bin/matlab.exe');
     var fileMPath = path.resolve('C:/Users/ak12s/Desktop/Segment_Lesions/batch_lesion.m');
-    var command = '"C:\/Program Files\/MATLAB\/R2018b\/bin\/matlab.exe"'+
+    /*var command = '"C:\/Program Files\/MATLAB\/R2018b\/bin\/matlab.exe"'+
         ' -nosplash -nodesktop -r '+
-        "run(\'" + '"C:\/Users\/ak12s\/Desktop\/Segment_Lesions\/batch_lesion.m"' + "\')";
+        "run(\'" + '"C:\/Users\/ak12s\/Desktop\/Segment_Lesions\/batch_lesion.m"' + "\')";*/
+    let pathmatlab = path.resolve(req.params.pathfile);
+    let pathfile = path.resolve('C:/Users/ak12s/Desktop/Segment_Lesions/batch_lesion.m');
+    var command = req.params.pathfile +
+        ' -nosplash -nodesktop -r '+
+        "run(\'" + pathfile + '"' + "\')";
+    console.log(command);
     shell.exec(command, function (code, stdout, stderr) {
         console.log('Exit code: ', code);
         console.log('Program output ', stdout);
